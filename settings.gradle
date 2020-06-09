@@ -1,0 +1,8 @@
+rootProject.name = 'balzzak-server'
+include 'common-module'
+include 'data-module'
+include 'gateway-service'
+include 'goods-service'
+include 'account-service'
+
+
