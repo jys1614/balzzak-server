@@ -2,9 +2,10 @@ package com.balzzak.common.message.account;
 
 import com.balzzak.common.message.IName;
 import com.balzzak.common.message.MessageSerializer;
+import com.balzzak.common.message.goods.GoodsMessageName;
 import com.balzzak.common.utils.JsonUtil;
 
-public class AccountMessage extends MessageSerializer implements IName {
+public class AccountMessage extends MessageSerializer {
 
     private static final String ROUTING_KEY = "balzzak.service.account";
 
@@ -18,9 +19,8 @@ public class AccountMessage extends MessageSerializer implements IName {
         this.value = json;
     }
 
-
     @Override
-    public AccountMessageName getMessageName() {
-        return AccountMessageName.valueOf(this.name);
+    public AccountMessageName getName() {
+        return AccountMessageName.valueOf(super.getName().toString());
     }
 }

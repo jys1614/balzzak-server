@@ -4,6 +4,7 @@ import com.balzzak.common.utils.DatetimeHelper;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Currency;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -21,6 +22,7 @@ public class GoodsCategory {
 
     public void update(GoodsCategory goodsCategory) {
         this.sortOrder = goodsCategory.getSortOrder();
+        this.upperCategoryId = goodsCategory.getUpperCategoryId();
         this.categoryName = goodsCategory.getCategoryName();
         this.updateDate = DatetimeHelper.timestampNow();
     }
@@ -39,6 +41,9 @@ public class GoodsCategory {
 
     @Column(nullable = false)
     private int sortOrder;
+
+    @Column(nullable = false)
+    private long upperCategoryId;
 
     @Column(nullable = false)
     private String categoryName;

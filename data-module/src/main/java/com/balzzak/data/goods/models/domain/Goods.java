@@ -1,6 +1,8 @@
 package com.balzzak.data.goods.models.domain;
 
 import com.balzzak.common.utils.DatetimeHelper;
+import com.balzzak.data.goods.models.enums.SaleCode;
+import com.balzzak.data.goods.models.enums.SaleState;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -50,10 +52,12 @@ public class Goods {
     private String description;
 
     @Column(nullable = false)
-    private int saleCode;
+    @Enumerated(EnumType.ORDINAL)
+    private SaleCode saleCode;
 
     @Column(nullable = false)
-    private int saleState;
+    @Enumerated(EnumType.ORDINAL)
+    private SaleState saleState;
 
     @Column(nullable = false)
     private long versionId;

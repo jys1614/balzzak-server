@@ -46,7 +46,7 @@ public class GoodsBiz implements IGoodsBiz {
 
     public List<GoodsCategory> getGoodsCategories(Long goodsCategoryId) {
         List<GoodsCategory> categoryList = new ArrayList<>();
-        if(goodsCategoryId != null) {
+        if(goodsCategoryId == null) {
             categoryList = this.goodsCategoryRepository.findAll();
         } else {
             Optional<GoodsCategory> category = this.goodsCategoryRepository.findById(goodsCategoryId);
@@ -68,8 +68,16 @@ public class GoodsBiz implements IGoodsBiz {
         // 카테고리와 아이템도 추가해야 한다면
     }
 
+    public void updateGoods(List<Goods> goodsList) {
+        this.goodsRepository.saveAll(goodsList);
+    }
+
+    public void updateGoodsCategory(List<GoodsCategory> goodsCategoryList) {
+        this.goodsCategoryRepository.saveAll(goodsCategoryList);
+    }
+
     public void deleteGoods(long goodsId) {
-        // 트랜잭션 처리 필요
+        // 트랜잭션 처리 필요 or 외래키?
         this.goodsCategoryMapRepository.deleteById(new GoodsCategoryMap.MapId(goodsId, null));
         this.goodsRepository.deleteById(goodsId);
     }
