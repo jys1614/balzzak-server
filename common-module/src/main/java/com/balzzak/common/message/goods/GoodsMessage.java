@@ -4,7 +4,7 @@ import com.balzzak.common.message.IName;
 import com.balzzak.common.message.MessageSerializer;
 import com.balzzak.common.utils.JsonUtil;
 
-public class GoodsMessage extends MessageSerializer implements IName  {
+public class GoodsMessage extends MessageSerializer {
 
     private static final String ROUTING_KEY = "balzzak.service.goods";
 
@@ -19,8 +19,8 @@ public class GoodsMessage extends MessageSerializer implements IName  {
     }
 
     @Override
-    public GoodsMessageName getMessageName() {
-        return GoodsMessageName.valueOf(this.name);
+    public GoodsMessageName getName() {
+        return GoodsMessageName.valueOf(super.getName().toString());
     }
 
 }

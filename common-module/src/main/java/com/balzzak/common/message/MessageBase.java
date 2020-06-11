@@ -3,11 +3,16 @@ package com.balzzak.common.message;
 import lombok.Getter;
 
 @Getter
-public class MessageBase {
+public abstract class MessageBase {
     protected String name = "";
-    protected String key = "";
     protected String value = "";
+
+    protected String key = "";
     private final String exchangeName = "balzzak.exchange";
 
     public MessageBase() {}
+
+    protected Object getName() {
+        return this.name;
+    }
 }

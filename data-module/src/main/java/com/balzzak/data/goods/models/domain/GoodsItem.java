@@ -40,6 +40,7 @@ public class GoodsItem {
     private String thumbnailPath;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private String countryOfOrigin;
 
     @Column(nullable = false)
