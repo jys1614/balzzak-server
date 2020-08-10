@@ -1,8 +1,6 @@
 package com.balzzak.common.message.account;
 
-import com.balzzak.common.message.IName;
 import com.balzzak.common.message.MessageSerializer;
-import com.balzzak.common.message.goods.GoodsMessageName;
 import com.balzzak.common.utils.JsonUtil;
 
 public class AccountMessage extends MessageSerializer {
@@ -19,8 +17,7 @@ public class AccountMessage extends MessageSerializer {
         this.value = json;
     }
 
-    @Override
-    public AccountMessageName getName() {
-        return AccountMessageName.valueOf(super.getName().toString());
+    public AccountMessageName getMessageName() {
+        return AccountMessageName.valueOf(this.getName());
     }
 }

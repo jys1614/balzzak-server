@@ -12,7 +12,8 @@ public abstract class MessageBase {
 
     public MessageBase() {}
 
-    protected Object getName() {
-        return this.name;
-    }
+    // Base에서 override 하지 않고 어노테이션으로 구현한다 @Getter 랑 중복이다
+    //protected String getName() {
+    //    return this.name;
+    //}
 }
