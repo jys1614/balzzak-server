@@ -27,3 +27,11 @@ https://www.notion.so/Web-Service-Project-a4d8f38069e047aa86ebf49d839df1db
 - https://docs.google.com/presentation/d/1V8MYnucm8Wmu2FMn2hgWL35ZsStCoHiViNkH5HqgwKA/edit
 - 전체 개발 킥오프 : 8월 29일 예정 
 - 프론트 리더 : 전태경
+
+
+- 8월 29일 
+- backend - frontend 
+- Board : 문의 게시판 
+- Web : GNB 카테고리
+- Banner and Goods : Resource storage
+- 
