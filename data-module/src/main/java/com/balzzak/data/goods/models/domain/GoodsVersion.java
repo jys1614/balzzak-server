@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -15,13 +16,13 @@ import java.util.List;
 public class GoodsVersion {
 
     public void setCurrentDatetime() {
-        this.createDate = DatetimeHelper.timestampNow();
-        this.updateDate = DatetimeHelper.timestampNow();
+        //this.createDate = DatetimeHelper.timestampNow();
+        //this.updateDate = DatetimeHelper.timestampNow();
     }
 
     public void update(GoodsVersion goodsVersion) {
-        this.filePath = goodsVersion.getFilePath();
-        this.updateDate = DatetimeHelper.timestampNow();
+        //this.filePath = goodsVersion.getFilePath();
+        //this.updateDate = DatetimeHelper.timestampNow();
     }
 
     @Id
@@ -32,12 +33,13 @@ public class GoodsVersion {
     private String filePath;
 
     @Column(nullable = false)
-    private Timestamp createDate;
+    private LocalDateTime createDate;
 
     @Column(nullable = false)
-    private Timestamp updateDate;
+    private LocalDateTime updateDate;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "versionId")
+//    @OneToMany(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "versionId")
+    @Transient
     private List<Goods> goodsList;
 }

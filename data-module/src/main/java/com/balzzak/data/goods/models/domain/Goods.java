@@ -4,28 +4,32 @@ import com.balzzak.common.utils.DatetimeHelper;
 import com.balzzak.data.goods.models.enums.SaleCode;
 import com.balzzak.data.goods.models.enums.SaleState;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @NoArgsConstructor
 @Entity
+@Table(name = "Goods")
+@IdClass(GoodsId.class)
 public class Goods {
 
-    //@Builder
-    public Goods(int i, String test) {
-        this.goodsId = i;
-        this.goodsName = test;
+    public Goods(long goodsId, long categoryId) {
+        this.goodsId = goodsId;
+        this.categoryId = categoryId;
     }
 
     public void setCurrentDatetime() {
-        this.createDate = DatetimeHelper.timestampNow();
-        this.updateDate = DatetimeHelper.timestampNow();
+        //this.createDate = DatetimeHelper.timestampNow();
+        //this.updateDate = DatetimeHelper.timestampNow();
     }
 
     public void update(Goods goods) {
@@ -35,18 +39,23 @@ public class Goods {
         this.saleCode = goods.getSaleCode();
         this.saleState = goods.getSaleState();
         this.versionId = goods.getVersionId();
-        this.updateDate = DatetimeHelper.timestampNow();
+        //this.updateDate = DatetimeHelper.timestampNow();
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long goodsId;
 
-    @Column(nullable = false)
-    private String goodsName;
+    @Id
+    private long categoryId;
 
     @Column(nullable = false)
     private BigDecimal regularPrice;
+
+    @Column(nullable = false)
+    private BigDecimal discountPrice;
+
+    @Column(nullable = false)
+    private String goodsName;
 
     @Column(nullable = false)
     private String description;
@@ -60,19 +69,31 @@ public class Goods {
     private SaleState saleState;
 
     @Column(nullable = false)
+    private LocalDateTime createDate;
+
+    @Column(nullable = false)
+    private LocalDateTime updateDate;
+
+    @Column(nullable = false)
     private long versionId;
 
-    @Column(nullable = false)
-    private Timestamp createDate;
+    @Column(nullable = true)
+    private String imagePath;
+
+    @Column(nullable = true)
+    private String thumbnailImagePath;
 
     @Column(nullable = false)
-    private Timestamp updateDate;
+    private String countryOfOrigin;
 
-    @OneToMany
-    @JoinColumn(name = "goodsId")
-    private List<GoodsCategoryMap> categories;
+//    @MapsId("categoryId")
+//    @ManyToOne
+//    @JoinColumn(name = "categoryId")
+    @Transient
+    private GoodsCategory category;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "goodsId", referencedColumnName = "goodsId")
-    private GoodsItem goodsItem;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "goods")
+    @Transient
+    private List<GoodsPicture> goodsPictures = new ArrayList<>();
+
 }

@@ -31,8 +31,8 @@ public class GoodsListener {
             case GOODS_GET: {
                 Long goodsId = message.deserializeValue(Long.TYPE);
                 List<Goods> list = goodsBiz.getGoods(goodsId);
-                list.add(new Goods(1,"test1"));
-                list.add(new Goods(2,"test2"));
+//                list.add(new Goods(1,"test1"));
+//                list.add(new Goods(2,"test2"));
                 String response = message.serializeValue(list);
                 return response;
             }
