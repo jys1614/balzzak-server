@@ -2,7 +2,6 @@ package com.balzzak.data.goods.models.request;
 
 import com.balzzak.data.goods.models.domain.Goods;
 import com.balzzak.data.goods.models.domain.GoodsCategory;
-import com.balzzak.data.goods.models.domain.GoodsItem;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.BeanUtils;
@@ -40,14 +39,4 @@ public class GoodsDTO {
         return list;
     }
 
-    public List<GoodsItem> convertGoodsItem() {
-        List<GoodsItem> list = new ArrayList<>();
-        for(GoodsItemRequest item : this.goodsItems) {
-            // clone 라이브러리를 쓸 수 있긴 하지만.. 성능상 이점을 나중에 확인해 본다
-            GoodsItem i = new GoodsItem();
-            BeanUtils.copyProperties(item, i);
-            list.add(i);
-        }
-        return list;
-    }
 }

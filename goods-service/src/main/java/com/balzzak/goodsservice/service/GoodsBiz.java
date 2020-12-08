@@ -3,12 +3,8 @@ package com.balzzak.goodsservice.service;
 import com.balzzak.data.goods.interfaces.IGoodsBiz;
 import com.balzzak.data.goods.models.domain.Goods;
 import com.balzzak.data.goods.models.domain.GoodsCategory;
-import com.balzzak.data.goods.models.domain.GoodsCategoryMap;
-import com.balzzak.data.goods.models.domain.GoodsItem;
 import com.balzzak.data.goods.models.request.GoodsDTO;
-import com.balzzak.goodsservice.repository.GoodsCategoryMapRepository;
 import com.balzzak.goodsservice.repository.GoodsCategoryRepository;
-import com.balzzak.goodsservice.repository.GoodsItemRepository;
 import com.balzzak.goodsservice.repository.GoodsRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,14 +17,14 @@ public class GoodsBiz implements IGoodsBiz {
 
     private final GoodsRepository goodsRepository;
     private final GoodsCategoryRepository goodsCategoryRepository;
-    private final GoodsItemRepository goodsItemRepository;
-    private final GoodsCategoryMapRepository goodsCategoryMapRepository;
 
-    public GoodsBiz(GoodsRepository goodsRepository, GoodsCategoryRepository goodsCategoryRepository, GoodsItemRepository goodsItemRepository, GoodsCategoryMapRepository goodsCategoryMapRepository) {
+
+
+    public GoodsBiz(GoodsRepository goodsRepository, GoodsCategoryRepository goodsCategoryRepository) {
         this.goodsRepository = goodsRepository;
         this.goodsCategoryRepository = goodsCategoryRepository;
-        this.goodsItemRepository = goodsItemRepository;
-        this.goodsCategoryMapRepository = goodsCategoryMapRepository;
+
+
     }
 
     // 없는 경우 예외를 보내야 하나??
@@ -59,7 +55,6 @@ public class GoodsBiz implements IGoodsBiz {
     public void createGoods(GoodsDTO dto) {
         List<Goods> goodsList = dto.convertGoods();
         List<GoodsCategory> categoryList = dto.convertGoodsCategory();
-        List<GoodsItem> goodsItemList = dto.convertGoodsItem();
 
         // SQL 조인으로 하는게 젤 낫겠는데...
         // mysql 에서 TVP 가 지원되는지도 확인 필요
@@ -78,12 +73,12 @@ public class GoodsBiz implements IGoodsBiz {
 
     public void deleteGoods(long goodsId) {
         // 트랜잭션 처리 필요 or 외래키?
-        this.goodsCategoryMapRepository.deleteById(new GoodsCategoryMap.MapId(goodsId, null));
+//        this.goodsCategoryMapRepository.deleteById(new GoodsCategoryMap.MapId(goodsId, null));
         this.goodsRepository.deleteById(goodsId);
     }
 
     public void deleteGoodsCategory(long goodsCategoryId) {
-        this.goodsCategoryMapRepository.deleteById(new GoodsCategoryMap.MapId(null, goodsCategoryId));
+//        this.goodsCategoryMapRepository.deleteById(new GoodsCategoryMap.MapId(null, goodsCategoryId));
         this.goodsCategoryRepository.deleteById(goodsCategoryId);
     }
 }
