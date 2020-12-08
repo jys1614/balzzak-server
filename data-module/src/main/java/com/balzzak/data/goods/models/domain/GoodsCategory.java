@@ -8,31 +8,33 @@ import org.hibernate.validator.constraints.Currency;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @NoArgsConstructor
 @Entity
+@Table(name = "GoodsCategory")
 public class GoodsCategory {
 
     public void setCurrentDatetime() {
-        this.createDate = DatetimeHelper.timestampNow();
-        this.updateDate = DatetimeHelper.timestampNow();
+        //this.createDate = DatetimeHelper.timestampNow();
+        //this.updateDate = DatetimeHelper.timestampNow();
     }
 
     public void update(GoodsCategory goodsCategory) {
         this.sortOrder = goodsCategory.getSortOrder();
-        this.upperCategoryId = goodsCategory.getUpperCategoryId();
         this.categoryName = goodsCategory.getCategoryName();
-        this.updateDate = DatetimeHelper.timestampNow();
+        //this.updateDate = DatetimeHelper.timestampNow();
     }
 
     @Builder
     public GoodsCategory(long categoryId, String categoryName, Timestamp createDate, Timestamp updateDate) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
-        this.createDate = createDate;
-        this.updateDate = updateDate;
+        //this.createDate = createDate;
+        //this.updateDate = updateDate;
     }
 
     @Id
@@ -43,18 +45,15 @@ public class GoodsCategory {
     private int sortOrder;
 
     @Column(nullable = false)
-    private long upperCategoryId;
-
-    @Column(nullable = false)
     private String categoryName;
 
     @Column(nullable = false)
-    private Timestamp createDate;
+    private LocalDateTime createDate;
 
     @Column(nullable = false)
-    private Timestamp updateDate;
+    private LocalDateTime updateDate;
 
-    @OneToMany
-    @JoinColumn(name = "goodsCategoryId")
-    private List<GoodsCategoryMap> goods;
+    //@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
+    @Transient
+    private List<Goods> goods = new ArrayList<>();
 }
