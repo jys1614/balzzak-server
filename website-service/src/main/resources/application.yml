@@ -1,5 +1,5 @@
 server:
-  port: 9000
+  port: 5000
 
 logging:
   level:
@@ -13,13 +13,8 @@ logging:
               BasicBinder: TRACE
 
 spring:
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
   datasource:
-    url: jdbc:mysql://health-note-db.ctvminqtmbqk.ap-northeast-2.rds.amazonaws.com:3306?serverTimezone=Asia/Seoul&useSSL=false&characterEncoding=UTF-8
+    url: jdbc:mysql://health-note-db.ctvminqtmbqk.ap-northeast-2.rds.amazonaws.com:3306/Goods?serverTimezone=Asia/Seoul&useSSL=false&characterEncoding=UTF-8
     username: healthnote
     password: gpftm12!
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -40,8 +35,3 @@ spring:
       hibernate:
         format_sql: true
         use_sql_comments: true
-
-  mvc:
-    throw-exception-if-no-handler-found: true
-  resources:
-    add-mappings: false

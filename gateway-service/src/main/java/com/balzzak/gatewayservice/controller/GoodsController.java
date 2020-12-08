@@ -7,7 +7,6 @@ import com.balzzak.common.message.goods.GoodsMessageName;
 import com.balzzak.common.template.BalzzakRabbitTemplate;
 import com.balzzak.data.goods.models.domain.Goods;
 import com.balzzak.data.goods.models.domain.GoodsCategory;
-import com.balzzak.data.goods.models.domain.GoodsItem;
 import com.balzzak.data.goods.models.request.GoodsDTO;
 
 import org.springframework.http.ResponseEntity;
@@ -36,13 +35,13 @@ public class GoodsController {
         return response;
     }
 
-    @GetMapping(path = "/items/{goodsItemId}")
-    public List<GoodsItem> getGoodsItems(@PathVariable long goodsItemId) {
-        // 테이블을 하나로 합칠지 정할 것
-        GoodsMessage message = new GoodsMessage(GoodsMessageName.GOODS_ITEM_GET, goodsItemId);
-        List<GoodsItem> response = amqpTemplate.SendMessageAndReceive(message);
-        return response;
-    }
+//    @GetMapping(path = "/items/{goodsItemId}")
+//    public List<GoodsItem> getGoodsItems(@PathVariable long goodsItemId) {
+//        // 테이블을 하나로 합칠지 정할 것
+//        GoodsMessage message = new GoodsMessage(GoodsMessageName.GOODS_ITEM_GET, goodsItemId);
+//        List<GoodsItem> response = amqpTemplate.SendMessageAndReceive(message);
+//        return response;
+//    }
 
     @GetMapping(path = "/categories/{goodsCategoryId}")
     public List<GoodsCategory> getGoodsCategories(@PathVariable long goodsCategoryId) {
