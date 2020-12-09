@@ -1,9 +1,9 @@
 package com.balzzak.goodsservice.service;
 
-import com.balzzak.data.goods.interfaces.IGoodsBiz;
-import com.balzzak.data.goods.models.domain.Goods;
-import com.balzzak.data.goods.models.domain.GoodsCategory;
-import com.balzzak.data.goods.models.request.GoodsDTO;
+import com.balzzak.goods.contract.operation.IGoodsBiz;
+import com.balzzak.goods.model.domain.Goods;
+import com.balzzak.goods.model.domain.GoodsCategory;
+import com.balzzak.goods.model.dto.request.GoodsDTO;
 import com.balzzak.goodsservice.repository.GoodsCategoryRepository;
 import com.balzzak.goodsservice.repository.GoodsRepository;
 import org.springframework.stereotype.Service;

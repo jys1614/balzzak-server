@@ -1,6 +1,6 @@
 package com.balzzak.gatewayservice.advisor;
 
-import com.balzzak.data.exception.CommonErrorCode;
+import com.balzzak.common.exception.CommonErrorCode;
 import com.balzzak.gatewayservice.supports.TestController;
 import com.balzzak.gatewayservice.supports.TestDto;
 import com.balzzak.gatewayservice.supports.TestType;

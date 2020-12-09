@@ -1,9 +1,9 @@
 //package com.balzzak.gatewayservice.handler;
 //
-//import com.balzzak.data.exception.BalzzakException;
-//import com.balzzak.data.exception.ResponseError;
-//import com.balzzak.data.exception.RequestException;
-//import com.balzzak.data.exception.ResponseException;
+//import com.balzzak.common.exception.BalzzakException;
+//import com.balzzak.common.exception.ResponseError;
+//import com.balzzak.common.exception.RequestException;
+//import com.balzzak.common.exception.ResponseException;
 //import org.springframework.http.HttpHeaders;
 //import org.springframework.http.HttpStatus;
 //import org.springframework.http.ResponseEntity;

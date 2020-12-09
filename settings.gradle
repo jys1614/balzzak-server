@@ -5,4 +5,5 @@ include 'gateway-service'
 include 'goods-service'
 include 'account-service'
 include 'website-service'
+include 'goods-model'
 
