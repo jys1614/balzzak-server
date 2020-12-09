@@ -1,6 +1,6 @@
 package com.balzzak.gatewayservice.handler;
 
-import com.balzzak.data.exception.ResponseError;
+import com.balzzak.common.exception.ResponseError;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,7 @@
 package com.balzzak.gatewayservice.advisor;
 
-import com.balzzak.data.exception.CommonErrorCode;
-import com.balzzak.data.exception.ErrorResponseDto;
+import com.balzzak.common.exception.CommonErrorCode;
+import com.balzzak.common.exception.ErrorResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

@@ -1,13 +1,13 @@
 package com.balzzak.gatewayservice.controller;
 
-import com.balzzak.common.message.goods.GoodsMessage;
-import com.balzzak.common.message.goods.GoodsMessageName;
+import com.balzzak.goods.message.GoodsMessage;
+import com.balzzak.goods.message.GoodsMessageName;
 
 
 import com.balzzak.common.template.BalzzakRabbitTemplate;
-import com.balzzak.data.goods.models.domain.Goods;
-import com.balzzak.data.goods.models.domain.GoodsCategory;
-import com.balzzak.data.goods.models.request.GoodsDTO;
+import com.balzzak.goods.model.domain.Goods;
+import com.balzzak.goods.model.domain.GoodsCategory;
+import com.balzzak.goods.model.dto.request.GoodsDTO;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
