@@ -3,6 +3,7 @@ package com.balzzak.goodsservice.service;
 import com.balzzak.goods.contract.operation.IGoodsBiz;
 import com.balzzak.goods.model.domain.Goods;
 import com.balzzak.goods.model.domain.GoodsCategory;
+import com.balzzak.goods.model.domain.GoodsId;
 import com.balzzak.goods.model.dto.request.GoodsDTO;
 import com.balzzak.goodsservice.repository.GoodsCategoryRepository;
 import com.balzzak.goodsservice.repository.GoodsRepository;
@@ -19,21 +20,18 @@ public class GoodsBiz implements IGoodsBiz {
     private final GoodsCategoryRepository goodsCategoryRepository;
 
 
-
     public GoodsBiz(GoodsRepository goodsRepository, GoodsCategoryRepository goodsCategoryRepository) {
         this.goodsRepository = goodsRepository;
         this.goodsCategoryRepository = goodsCategoryRepository;
-
-
     }
 
     // 없는 경우 예외를 보내야 하나??
-    public List<Goods> getGoods(Long goodsId) {
+    public List<Goods> getGoods(Long goodsId, Long goodsCategoryId) {
         List<Goods> goodsList = new ArrayList<>();
         if(goodsId == null) {
             goodsList = this.goodsRepository.findAll();
         } else {
-            Optional<Goods> goods = this.goodsRepository.findById(goodsId);
+            Optional<Goods> goods = this.goodsRepository.findById(new GoodsId(goodsId,goodsCategoryId));
             if(goods.isPresent() == true)
                 goodsList.add(goods.get());
         }
@@ -74,7 +72,7 @@ public class GoodsBiz implements IGoodsBiz {
     public void deleteGoods(long goodsId) {
         // 트랜잭션 처리 필요 or 외래키?
 //        this.goodsCategoryMapRepository.deleteById(new GoodsCategoryMap.MapId(goodsId, null));
-        this.goodsRepository.deleteById(goodsId);
+        this.goodsRepository.deleteById(new GoodsId(1,1));
     }
 
     public void deleteGoodsCategory(long goodsCategoryId) {

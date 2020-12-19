@@ -14,9 +14,9 @@ logging:
 
 spring:
   datasource:
-    url: jdbc:mysql://health-note-db.ctvminqtmbqk.ap-northeast-2.rds.amazonaws.com:3306/Account?serverTimezone=Asia/Seoul&useSSL=false&characterEncoding=UTF-8
-    username: healthnote
-    password: gpftm12!
+    url: jdbc:mysql://balzzakdb.eastus.cloudapp.azure.com:3306/Account?serverTimezone=Asia/Seoul&useSSL=false&characterEncoding=UTF-8
+    username: balzzak
+    password: ballzak1!
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       connection-timeout: 30000

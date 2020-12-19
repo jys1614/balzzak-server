@@ -1,10 +1,7 @@
 package com.balzzak.goods.model.domain;
 
-import com.balzzak.common.utils.DatetimeHelper;
 import com.balzzak.goods.model.enums.SaleCode;
 import com.balzzak.goods.model.enums.SaleState;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,11 +17,6 @@ import java.util.List;
 @Table(name = "Goods")
 @IdClass(GoodsId.class)
 public class Goods {
-
-    public Goods(long goodsId, long categoryId) {
-        this.goodsId = goodsId;
-        this.categoryId = categoryId;
-    }
 
     public void setCurrentDatetime() {
         //this.createDate = DatetimeHelper.timestampNow();
