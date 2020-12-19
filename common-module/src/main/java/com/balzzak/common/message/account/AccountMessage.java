@@ -1,7 +1,6 @@
 package com.balzzak.common.message.account;
 
 import com.balzzak.common.message.MessageSerializer;
-import com.balzzak.common.message.goods.GoodsMessageName;
 import com.balzzak.common.utils.JsonUtil;
 
 public class AccountMessage extends MessageSerializer {
