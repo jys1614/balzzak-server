@@ -1,10 +1,9 @@
 package com.balzzak.goodsservice.repository;
 
-import com.balzzak.goods.model.domain.Goods;
-import com.balzzak.goods.model.domain.GoodsId;
+import com.balzzak.goods.model.domain.GoodsVersion;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface GoodsRepository extends JpaRepository<Goods, GoodsId> {
+public interface GoodsVersionRepository extends JpaRepository<GoodsVersion, Long> {
 }
