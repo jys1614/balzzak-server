@@ -21,7 +21,7 @@ subprojects {
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'java'
 
-    sourceCompatibility = '1.8'
+    sourceCompatibility = '11'
 
     repositories {
         mavenCentral()
@@ -50,14 +50,15 @@ subprojects {
 project(':gateway-service') {
     dependencies {
         //compile project(':common-module')
-        compile project(':data-module')
+        //compile project(':data-module')
+        compile project(':goods-model')
     }
 }
 
 project(':goods-service') {
     dependencies {
         //compile project(':common-module')
-        compile project(':data-module')
+        compile project(':goods-model')
     }
 }
 
