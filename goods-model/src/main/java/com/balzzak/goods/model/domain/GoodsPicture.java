@@ -14,11 +14,6 @@ import java.time.LocalDateTime;
 @IdClass(GoodsPictureId.class)
 public class GoodsPicture {
 
-    public GoodsPicture(long pictureId, long goodsId) {
-        this.pictureId = pictureId;
-        this.goodsId = goodsId;
-    }
-
     @Id
     private long pictureId;
 
