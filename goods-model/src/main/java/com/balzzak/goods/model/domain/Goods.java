@@ -1,10 +1,13 @@
 package com.balzzak.goods.model.domain;
 
+import com.balzzak.goods.model.enums.SaleCode;
+import com.balzzak.goods.model.enums.SaleState;
 
 import com.balzzak.goods.model.domain.compositekey.GoodsCompositeId;
 import com.balzzak.goods.model.enums.SaleCode;
 import com.balzzak.goods.model.enums.SaleState;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
