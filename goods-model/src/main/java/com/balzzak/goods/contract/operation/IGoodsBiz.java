@@ -5,5 +5,5 @@ import com.balzzak.goods.model.domain.Goods;
 import java.util.List;
 
 public interface IGoodsBiz {
-    List<Goods> getGoods(Long goodsId, Long goodsCategoryId);
+    List<Goods> getGoods(Long goodsId);
 }
