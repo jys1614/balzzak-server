@@ -1,17 +1,18 @@
 package com.balzzak.goods.model.domain;
 
-import lombok.EqualsAndHashCode;
+import com.balzzak.goods.model.domain.compositekey.GoodsPictureCompositeId;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
 @Entity
 @Table(name = "GoodsPicture")
-@IdClass(GoodsPictureId.class)
+@IdClass(GoodsPictureCompositeId.class)
 public class GoodsPicture {
 
     @Id
@@ -24,10 +25,10 @@ public class GoodsPicture {
     private String picturePath;
 
     @Column(nullable = false)
-    private LocalDateTime createDate;
+    private Timestamp createDate;
 
     @Column(nullable = false)
-    private LocalDateTime updateDate;
+    private Timestamp updateDate;
 
 //    @MapsId("goodsId")
 //    @ManyToOne

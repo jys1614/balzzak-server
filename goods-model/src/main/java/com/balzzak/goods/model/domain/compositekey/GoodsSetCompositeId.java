@@ -1,4 +1,4 @@
-package com.balzzak.goods.model.domain;
+package com.balzzak.goods.model.domain.compositekey;
 
 
 import lombok.EqualsAndHashCode;
@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
-public class GoodsSetId  implements Serializable {
+public class GoodsSetCompositeId implements Serializable {
 
     @EqualsAndHashCode.Include
     @Id
