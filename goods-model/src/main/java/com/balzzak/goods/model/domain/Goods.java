@@ -4,7 +4,8 @@ package com.balzzak.goods.model.domain;
 import com.balzzak.goods.model.domain.compositekey.GoodsCompositeId;
 import com.balzzak.goods.model.enums.SaleCode;
 import com.balzzak.goods.model.enums.SaleState;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -86,12 +87,12 @@ public class Goods {
 //    @ManyToOne
 //    @JoinColumn(name = "categoryId")
     @Transient
-    @JsonIgnore     // 안먹힘
+    //@JsonIgnore     // 안먹힘
     private GoodsCategory category;
 
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "goods")
     @Transient
-    @JsonIgnore     // 안먹힘
+    //@JsonIgnore     // 안먹힘
     private List<GoodsPicture> goodsPictures = new ArrayList<>();
 
 }

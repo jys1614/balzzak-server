@@ -47,11 +47,10 @@ public class GoodsBiz implements IGoodsBiz {
             else
                 throw new RuntimeException("404");
         } else if(request.getGoodsCategoryId() != null) {
-            Optional<Goods> goods = this.goodsRepository.findByCategoryId(request.getGoodsCategoryId());
-            if(goods.isPresent())
-                goodsList.add(goods.get());
-            else
-                throw new RuntimeException("404");
+            goodsList = this.goodsRepository.findByCategoryId(request.getGoodsCategoryId());
+            if(goodsList.size() == 0)
+               throw new RuntimeException("404");
+
         } else if(request.getGoodsId() != null && request.getGoodsCategoryId() != null) {
             Optional<Goods> goods = this.goodsRepository.findById(new GoodsCompositeId(request.getGoodsId(), request.getGoodsCategoryId()));
             if(goods.isPresent())
@@ -63,17 +62,6 @@ public class GoodsBiz implements IGoodsBiz {
         return goodsList;
     }
 
-    public List<GoodsCategory> getGoodsCategories(Long goodsCategoryId) {
-        List<GoodsCategory> categoryList = new ArrayList<>();
-        if(goodsCategoryId == null) {
-            categoryList = this.goodsCategoryRepository.findAll();
-        } else {
-            Optional<GoodsCategory> category = this.goodsCategoryRepository.findById(goodsCategoryId);
-            if(category.isPresent() == true)
-                categoryList.add(category.get());
-        }
-        return categoryList;
-    }
 
     @Transactional(propagation = Propagation.REQUIRED)
     public void createGoods(GoodsDTO dto) {
