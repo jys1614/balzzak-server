@@ -5,6 +5,7 @@ import com.balzzak.goods.model.domain.compositekey.GoodsCompositeId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -12,7 +13,7 @@ public interface GoodsRepository extends JpaRepository<Goods, GoodsCompositeId> 
 
     Optional<Goods> findByGoodsId(long goodsId);
 
-    Optional<Goods> findByCategoryId(long categoryId);
+    List<Goods> findByCategoryId(long categoryId);
 
     void deleteByGoodsId(long goodsId);
 

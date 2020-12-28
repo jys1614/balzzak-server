@@ -49,29 +49,26 @@ subprojects {
 
 project(':gateway-service') {
     dependencies {
-        //compile project(':common-module')
-        //compile project(':data-module')
+
         compile project(':goods-model')
     }
 }
 
 project(':goods-service') {
     dependencies {
-        //compile project(':common-module')
+
         compile project(':goods-model')
     }
 }
 
 project(':account-service') {
     dependencies {
-        //compile project(':common-module')
-        compile project(':data-module')
+
     }
 }
 
 project(':website-service') {
     dependencies {
-        //compile project(':common-module')
-        compile project(':data-module')
+
     }
 }
